@@ -5,6 +5,19 @@ import produce from "immer";
 const numRows = 50;
 const numCols = 50;
 
+//array of operations for the Rules logic - checking the neighbors state:
+//each one of the neighbors location is represented by one operation
+const operations = [
+  [0, 1],
+  [0, -1],
+  [1, -1],
+  [-1, 1],
+  [1, 1],
+  [-1, -1],
+  [1, 0],
+  [-1, 0],
+];
+
 const App: React.FC = () => {
   //create a Grid - Grid state - values are constantly changing
   const [grid, setGrid] = useState(() => {
@@ -30,9 +43,43 @@ const App: React.FC = () => {
       //if running = false -> return (die - stop)
       return;
     }
+
+    setGrid((g) => {
+      //go over each current cell "g"
+      return produce(g, (gridCopy) => {
+        for (let i = 0; i < numRows; i++) {
+          for (let k = 0; k < numCols; k++) {
+            //check the numbers of neighbors of the current cell "g"
+            let neighbors = 0;
+            operations.forEach(([x, y]) => {
+              const newI = i + x;
+              const newK = k + y;
+              //checking to make sure we are not going above or below of what we can go as values
+              if (newI >= 0 && newI < numRows && newK >= 0 && newK < numCols) {
+                //if we have a live cell = 1 will add +1 to the neighbors
+                //that's going to tell us for a given cell, how many neighbors it has.
+                neighbors += g[newI][newK];
+              }
+            });
+
+            //R U L ES :
+            //01.Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+            //03.Any live cell with more than three live neighbours dies, as if by overpopulation.
+            if (neighbors < 2 || neighbors > 3) {
+              //the current position "g" dies => turn into gridCopy = 0
+              gridCopy[i][k] = 0;
+            } else if (g[i][k] === 0 && neighbors === 3) {
+              //04.Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+              gridCopy[i][k] = 1;
+            }
+          }
+        }
+      });
+    });
+
     //simulate
     //call itself function again
-    setTimeout(runSimulation, 1000);
+    setTimeout(runSimulation, 100);
   }, []);
 
   return (
@@ -40,6 +87,10 @@ const App: React.FC = () => {
       <button
         onClick={() => {
           setRunning(!running);
+          if (!running) {
+            runningRef.current = true;
+            runSimulation();
+          }
         }}
       >
         {running ? "Stop" : "Start"}
