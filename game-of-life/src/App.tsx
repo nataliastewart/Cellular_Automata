@@ -29,7 +29,7 @@ const generateEmptyGrid = () => {
   return rows;
 };
 
-const App: React.FC = () => {
+function App() {
   //create a Grid - Grid state - values are constantly changing
   const [grid, setGrid] = useState(() => {
     return generateEmptyGrid();
@@ -88,41 +88,43 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <button
-        onClick={() => {
-          setRunning(!running);
-          if (!running) {
-            runningRef.current = true;
-            runSimulation();
-          }
-        }}
-      >
-        {running ? "Stop" : "Start"}
-      </button>
+    <div className="App-game">
+      <div className="wrap-buttons">
+        <button
+          className="start-stop"
+          onClick={() => {
+            setRunning(!running);
+            if (!running) {
+              runningRef.current = true;
+              runSimulation();
+            }
+          }}
+        >
+          {running ? "Stop" : "Start"}
+        </button>
 
-      <button
-        onClick={() => {
-          const rows = [];
-          for (let i = 0; i < numRows; i++) {
-            rows.push(
-              Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
-            );
-          }
+        <button
+          onClick={() => {
+            const rows = [];
+            for (let i = 0; i < numRows; i++) {
+              rows.push(
+                Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
+              );
+            }
 
-          setGrid(rows);
-        }}
-      >
-        Random
-      </button>
-      <button
-        onClick={() => {
-          setGrid(generateEmptyGrid());
-        }}
-      >
-        Clear
-      </button>
-
+            setGrid(rows);
+          }}
+        >
+          Random
+        </button>
+        <button
+          onClick={() => {
+            setGrid(generateEmptyGrid());
+          }}
+        >
+          Clear
+        </button>
+      </div>
       <div
         className="App"
         style={{
@@ -153,9 +155,9 @@ const App: React.FC = () => {
           ))
         )}
       </div>
-    </>
+    </div>
   );
-};
+}
 
 export default App;
 
