@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import "./App.css";
 import produce from "immer";
 
@@ -17,36 +17,63 @@ const App: React.FC = () => {
     return rows;
   });
 
+  const [running, setRunning] = useState(false);
+
+  //using useRef hook => the reference of the value of running will be watched and can be updated
+  const runningRef = useRef(running);
+  runningRef.current = running;
+
+  //don't recreate this function every render. useCallback hook - only create the function once
+  const runSimulation = useCallback(() => {
+    //checking if simulation is running
+    if (!runningRef.current) {
+      //if running = false -> return (die - stop)
+      return;
+    }
+    //simulate
+    //call itself function again
+    setTimeout(runSimulation, 1000);
+  }, []);
+
   return (
-    <div
-      className="App"
-      style={{
-        display: "grid",
-        gridTemplateColumns: `repeat(${numCols}, 20px)`,
-      }}
-    >
-      {grid.map((rows, i) =>
-        rows.map((col, k) => (
-          //onClick will mutate the grid state to = 1 (live) and will turn into green
-          <div
-            key={`${i}-${k}`}
-            onClick={() => {
-              const newGrid = produce(grid, (gridCopy) => {
-                //toggle the state live/dead
-                gridCopy[i][k] = grid[i][k] ? 0 : 1;
-              });
-              setGrid(newGrid);
-            }}
-            style={{
-              width: 20,
-              height: 20,
-              backgroundColor: grid[i][k] ? "LawnGreen" : undefined,
-              border: "solid 1px black",
-            }}
-          />
-        ))
-      )}
-    </div>
+    <>
+      <button
+        onClick={() => {
+          setRunning(!running);
+        }}
+      >
+        {running ? "Stop" : "Start"}
+      </button>
+      <div
+        className="App"
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${numCols}, 20px)`,
+        }}
+      >
+        {grid.map((rows, i) =>
+          rows.map((col, k) => (
+            //onClick will mutate the grid state to = 1 (live) and will turn into green
+            <div
+              key={`${i}-${k}`}
+              onClick={() => {
+                const newGrid = produce(grid, (gridCopy) => {
+                  //toggle the state live/dead
+                  gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                });
+                setGrid(newGrid);
+              }}
+              style={{
+                width: 20,
+                height: 20,
+                backgroundColor: grid[i][k] ? "LawnGreen" : undefined,
+                border: "solid 1px black",
+              }}
+            />
+          ))
+        )}
+      </div>
+    </>
   );
 };
 
