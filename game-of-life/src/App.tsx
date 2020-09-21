@@ -18,16 +18,21 @@ const operations = [
   [-1, 0],
 ];
 
+const generateEmptyGrid = () => {
+  const rows = [];
+  //interate to create the rows and cols
+  for (let i = 0; i < numRows; i++) {
+    //when create the row, push a cols array with value 0 as well
+    rows.push(Array.from(Array(numCols), () => 0));
+  }
+
+  return rows;
+};
+
 const App: React.FC = () => {
   //create a Grid - Grid state - values are constantly changing
   const [grid, setGrid] = useState(() => {
-    const rows = [];
-    //interate to create the rows and cols
-    for (let i = 0; i < numRows; i++) {
-      //when create the row, push a cols array with value 0 as well
-      rows.push(Array.from(Array(numCols), () => 0));
-    }
-    return rows;
+    return generateEmptyGrid();
   });
 
   const [running, setRunning] = useState(false);
@@ -95,6 +100,29 @@ const App: React.FC = () => {
       >
         {running ? "Stop" : "Start"}
       </button>
+
+      <button
+        onClick={() => {
+          const rows = [];
+          for (let i = 0; i < numRows; i++) {
+            rows.push(
+              Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
+            );
+          }
+
+          setGrid(rows);
+        }}
+      >
+        Random
+      </button>
+      <button
+        onClick={() => {
+          setGrid(generateEmptyGrid());
+        }}
+      >
+        Clear
+      </button>
+
       <div
         className="App"
         style={{
@@ -118,7 +146,8 @@ const App: React.FC = () => {
                 width: 20,
                 height: 20,
                 backgroundColor: grid[i][k] ? "LawnGreen" : undefined,
-                border: "solid 1px black",
+                border: "solid 1px orange",
+                borderRadius: 5,
               }}
             />
           ))
