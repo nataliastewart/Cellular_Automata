@@ -90,7 +90,10 @@ function App() {
 
   return (
     <div className="App-game">
-      <Link to="/">Home</Link>
+      <div className="header">
+        <Link to="/">Home</Link>
+      </div>
+
       <div className="wrap-buttons">
         <button
           className="start-stop"
@@ -151,7 +154,7 @@ function App() {
               style={{
                 width: 20,
                 height: 20,
-                backgroundColor: grid[i][k] ? "LawnGreen" : undefined,
+                backgroundColor: grid[i][k] ? "#39e600" : undefined,
                 border: "solid 1px orange",
                 borderRadius: 5,
               }}

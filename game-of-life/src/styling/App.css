@@ -37,7 +37,9 @@
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 1%;
-  padding-top: 3%;
+  padding-top: 1%;
+  border: 2px solid rgb(231, 114, 4);
+  background-color: rgb(50, 50, 53);
 }
 
 .start-stop {
@@ -130,4 +132,21 @@
   color: #111;
   background: #d10000;
   box-shadow: 0 0 50px #f50606;
+}
+
+.header {
+  display: flex;
+  justify-content: start;
+  padding-left: 1%;
+  margin: 2% 1%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: neon;
+  color: #426dfb;
+  font-size: 3vw;
+  line-height: 1%;
+  text-shadow: 0 0 3vw #2356ff;
 }
