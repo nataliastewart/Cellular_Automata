@@ -10,6 +10,35 @@
   align-items: center;
 }
 
+.wrap-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 1%;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  line-height: 150%;
+  padding: 0% 2% 0% 2%;
+  box-sizing: border-box;
+  height: 10%;
+  margin-bottom: 1%;
+  color: rgb(199, 90, 2);
+}
+
+.rules {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0% 2% 0% 2%;
+  margin-bottom: 50%;
+  height: 10%;
+  color: rgb(199, 90, 2);
+}
+
 /* Neon */
 html,
 body {
