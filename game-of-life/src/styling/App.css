@@ -1,6 +1,12 @@
-.App {
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.App-wrap {
   text-align: center;
-  background-color: black;
+  background-color: white;
+  justify-content: space-around;
 }
 
 .game-logo {
@@ -8,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

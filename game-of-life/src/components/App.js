@@ -5,7 +5,7 @@ import Game from "./Game";
 
 export default function App() {
   return (
-    <div>
+    <div className="App-wrap">
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
