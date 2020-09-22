@@ -14,7 +14,7 @@ export default function Home() {
         alt="cellular automata"
       />
       <Link className="Home-link" to="/app">
-        <p class="flux">PLAY!</p>
+        <p class="flux">Click to PLAY!</p>
       </Link>
     </div>
   );

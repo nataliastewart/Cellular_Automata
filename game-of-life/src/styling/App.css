@@ -5,12 +5,8 @@
 
 .App-wrap {
   text-align: center;
-  background-color: white;
+  background-color: black;
   justify-content: space-around;
-}
-
-.game-logo {
-  width: 15%;
 }
 
 .App-header {
@@ -39,9 +35,99 @@
 
 .wrap-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding-bottom: 1%;
+  padding-top: 3%;
 }
 
 .start-stop {
-  background-color: greenyellow;
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.start-stop {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #05c005;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.start-stop:hover {
+  color: #111;
+  background: #39ff14;
+  box-shadow: 0 0 50px #39ff14;
+}
+
+/*--------------------Radom-----*/
+.Radom {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.Radom {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #0c40ec;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.Radom:hover {
+  color: #111;
+  background: #072eda;
+  box-shadow: 0 0 50px #1165e4;
+}
+
+/*--------------------Clear-----*/
+.Clear {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.Clear {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #a1200f;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.Clear:hover {
+  color: #111;
+  background: #d10000;
+  box-shadow: 0 0 50px #f50606;
 }

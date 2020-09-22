@@ -34,25 +34,25 @@ body {
 
 .neon {
   font-family: neon;
-  color: #fb4264;
+  color: orange;
   font-size: 4vw;
   line-height: 2vw;
-  text-shadow: 0 0 3vw #f40a35;
+  text-shadow: 0 0 3vw black;
 }
 
 .flux {
   font-family: neon;
   color: #426dfb;
-  font-size: 5vw;
+  font-size: 3vw;
   line-height: 1%;
   text-shadow: 0 0 3vw #2356ff;
 }
 
-.neon {
-  animation: neon 1s ease infinite;
-  -moz-animation: neon 1s ease infinite;
-  -webkit-animation: neon 1s ease infinite;
-}
+/* .neon {
+  animation: neon 5s ease-in-out infinite alternate;
+  -moz-animation: neon 5s ease-in-out infinite alternate;
+  -webkit-animation: neon 5s ease-in-out infinite alternate;
+} */
 
 @keyframes neon {
   0%,
@@ -69,10 +69,10 @@ body {
 }
 
 .flux {
-  animation: flux 2s linear infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 2s linear infinite;
-  -o-animation: flux 2s linear infinite;
+  animation: flux 1s linear infinite;
+  -moz-animation: flux 1s linear infinite;
+  -webkit-animation: flux 1s linear infinite;
+  -o-animation: flux 1s linear infinite;
 }
 
 @keyframes flux {
