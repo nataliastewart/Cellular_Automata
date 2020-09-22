@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from "react";
-import "./App.css";
+import "../styling/App.css";
 import produce from "immer";
+import { Link } from "react-router-dom";
 
 const numRows = 50;
 const numCols = 50;
@@ -89,6 +90,7 @@ function App() {
 
   return (
     <div className="App-game">
+      <Link to="/">Home</Link>
       <div className="wrap-buttons">
         <button
           className="start-stop"
