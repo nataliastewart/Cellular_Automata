@@ -1,0 +1,36 @@
+.Home {
+  color: orange;
+  background-color: black;
+  padding-bottom: 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.Home-head {
+  color: orange;
+  display: flex;
+  justify-content: center;
+}
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.Home-link {
+  display: flex;
+  justify-content: center;
+  color: orange;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+  background-color: black;
+}
+
+p {
+  color: black;
+  background-color: orange;
+  border-radius: 5%;
+  padding: 2%;
+}
