@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.App-wrap {
+  text-align: center;
+  background-color: black;
+  justify-content: space-around;
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.titleApp {
+  color: white;
+}
+.wrap-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  border: 2px solid rgb(231, 114, 4);
+  background-color: rgb(50, 50, 53);
+}
+
+.start-stop {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.start-stop {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #05c005;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.start-stop:hover {
+  color: #111;
+  background: #39ff14;
+  box-shadow: 0 0 50px #39ff14;
+}
+
+/*--------------------Radom-----*/
+.Radom {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.Radom {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #0c40ec;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.Radom:hover {
+  color: #111;
+  background: #072eda;
+  box-shadow: 0 0 50px #1165e4;
+}
+
+/*--------------------Clear-----*/
+.Clear {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.Clear {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #a1200f;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.Clear:hover {
+  color: #111;
+  background: #d10000;
+  box-shadow: 0 0 50px #f50606;
+}
+
+.header {
+  display: flex;
+  justify-content: start;
+  padding-left: 1%;
+  margin: 2% 1%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: neon;
+  color: #426dfb;
+  font-size: 3vw;
+  line-height: 1%;
+  text-shadow: 0 0 3vw #2356ff;
+}

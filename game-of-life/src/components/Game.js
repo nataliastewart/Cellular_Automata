@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useRef } from "react";
-import "./App.css";
+import "../styling/App.css";
 import produce from "immer";
+import { Link } from "react-router-dom";
 
-const numRows = 50;
-const numCols = 50;
+let numRows = 30;
+let numCols = 50;
 
 //array of operations for the Rules logic - checking the neighbors state:
 //each one of the neighbors location is represented by one operation
@@ -36,6 +37,7 @@ function App() {
   });
 
   const [running, setRunning] = useState(false);
+  const [generation, setGeneration] = useState(0);
 
   //using useRef hook => the reference of the value of running will be watched and can be updated
   const runningRef = useRef(running);
@@ -87,8 +89,40 @@ function App() {
     setTimeout(runSimulation, 100);
   }, []);
 
+  const gridSizeOne = (size) => {
+    switch (size) {
+      default:
+        numCols = 15;
+        numRows = 15;
+        break;
+    }
+    setGrid(generateEmptyGrid);
+  };
+
+  const gridSizeTwo = (size) => {
+    switch (size) {
+      default:
+        numCols = 50;
+        numRows = 50;
+        break;
+    }
+    setGrid(generateEmptyGrid);
+  };
+
+  const handleSizeOne = (e) => {
+    gridSizeOne(e);
+  };
+
+  const handleSizeTwo = (e) => {
+    gridSizeTwo(e);
+  };
   return (
     <div className="App-game">
+      <div className="header">
+        <Link to="/">Home</Link>
+        {/* <p className="titleApp">Generation : {runSimulation}</p> */}
+      </div>
+
       <div className="wrap-buttons">
         <button
           className="start-stop"
@@ -104,6 +138,7 @@ function App() {
         </button>
 
         <button
+          className="Radom"
           onClick={() => {
             const rows = [];
             for (let i = 0; i < numRows; i++) {
@@ -118,12 +153,26 @@ function App() {
           Random
         </button>
         <button
+          className="Clear"
           onClick={() => {
             setGrid(generateEmptyGrid());
           }}
         >
           Clear
         </button>
+
+        <button onClick={handleSizeOne} value="1">
+          Grid Size 15X15
+        </button>
+        <button onClick={handleSizeTwo} value="2">
+          Grid Size 50X50
+        </button>
+
+        {/* <select name="type" onChange={handleSize}>
+          <option value="1">20x10</option>
+          <option value="2">50x30</option>
+          <option value="3">70x50</option>
+        </select> */}
       </div>
       <div
         className="App"
@@ -147,7 +196,7 @@ function App() {
               style={{
                 width: 20,
                 height: 20,
-                backgroundColor: grid[i][k] ? "LawnGreen" : undefined,
+                backgroundColor: grid[i][k] ? "#39e600" : undefined,
                 border: "solid 1px orange",
                 borderRadius: 5,
               }}
@@ -160,12 +209,3 @@ function App() {
 }
 
 export default App;
-
-//  <h2>Welcome to John Conway's "Game of Life"</h2>
-//       <img
-//         src={
-//           "https://camo.githubusercontent.com/32a6b1daed761b24dfef7d47fbd22f0be0bb51b2/68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f39616630663537362d376632312d343133332d393164662d3930373531353931326466355f636f6e7761792e676966"
-//         }
-//         className="game-logo"
-//         alt="cellular automata"
-//       />
