@@ -3,8 +3,8 @@ import "../styling/App.css";
 import produce from "immer";
 import { Link } from "react-router-dom";
 
-const numRows = 50;
-const numCols = 50;
+let numRows = 30;
+let numCols = 50;
 
 //array of operations for the Rules logic - checking the neighbors state:
 //each one of the neighbors location is represented by one operation
@@ -37,6 +37,7 @@ function App() {
   });
 
   const [running, setRunning] = useState(false);
+  const [generation, setGeneration] = useState(0);
 
   //using useRef hook => the reference of the value of running will be watched and can be updated
   const runningRef = useRef(running);
@@ -88,10 +89,38 @@ function App() {
     setTimeout(runSimulation, 100);
   }, []);
 
+  const gridSizeOne = (size) => {
+    switch (size) {
+      default:
+        numCols = 15;
+        numRows = 15;
+        break;
+    }
+    setGrid(generateEmptyGrid);
+  };
+
+  const gridSizeTwo = (size) => {
+    switch (size) {
+      default:
+        numCols = 50;
+        numRows = 50;
+        break;
+    }
+    setGrid(generateEmptyGrid);
+  };
+
+  const handleSizeOne = (e) => {
+    gridSizeOne(e);
+  };
+
+  const handleSizeTwo = (e) => {
+    gridSizeTwo(e);
+  };
   return (
     <div className="App-game">
       <div className="header">
         <Link to="/">Home</Link>
+        {/* <p className="titleApp">Generation : {runSimulation}</p> */}
       </div>
 
       <div className="wrap-buttons">
@@ -131,6 +160,19 @@ function App() {
         >
           Clear
         </button>
+
+        <button onClick={handleSizeOne} value="1">
+          Grid Size 15X15
+        </button>
+        <button onClick={handleSizeTwo} value="2">
+          Grid Size 50X50
+        </button>
+
+        {/* <select name="type" onChange={handleSize}>
+          <option value="1">20x10</option>
+          <option value="2">50x30</option>
+          <option value="3">70x50</option>
+        </select> */}
       </div>
       <div
         className="App"

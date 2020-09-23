@@ -33,6 +33,9 @@
   }
 }
 
+.titleApp {
+  color: white;
+}
 .wrap-buttons {
   display: flex;
   justify-content: space-evenly;
