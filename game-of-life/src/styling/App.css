@@ -9,6 +9,12 @@
   justify-content: space-around;
 }
 
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App-header {
   background-color: white;
   min-height: 100vh;
@@ -38,11 +44,43 @@
 }
 .wrap-buttons {
   display: flex;
+  margin-left: 17%;
   justify-content: space-evenly;
   padding-bottom: 1%;
   padding-top: 1%;
   border: 2px solid rgb(231, 114, 4);
   background-color: rgb(50, 50, 53);
+  width: 66%;
+}
+
+.size-btn {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* styling the button*/
+.size-btn {
+  padding: 10px 10px;
+  display: inline-block;
+  color: #ec710c;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/*creating animation effect*/
+.size-btn:hover {
+  color: #111;
+  background: #da6d07;
+  box-shadow: 0 0 50px #e98222;
 }
 
 .start-stop {

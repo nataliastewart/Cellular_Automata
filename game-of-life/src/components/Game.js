@@ -161,18 +161,12 @@ function App() {
           Clear
         </button>
 
-        <button onClick={handleSizeOne} value="1">
+        <button className="size-btn" onClick={handleSizeOne} value="1">
           Grid Size 15X15
         </button>
-        <button onClick={handleSizeTwo} value="2">
+        <button className="size-btn" onClick={handleSizeTwo} value="2">
           Grid Size 50X50
         </button>
-
-        {/* <select name="type" onChange={handleSize}>
-          <option value="1">20x10</option>
-          <option value="2">50x30</option>
-          <option value="3">70x50</option>
-        </select> */}
       </div>
       <div
         className="App"

@@ -11,6 +11,7 @@
 }
 
 .wrap-content {
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
